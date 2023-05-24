@@ -2,7 +2,7 @@
   <div id="App">
     <div id="CountdownContainer">
       <div id="Countdown"></div>
-    </div>
+    </div>``
     <div id="NumbersContainer">
       <div id="Numbers"></div>
     </div>
@@ -17,16 +17,22 @@
 <script>
   export default ({
     mounted() {
-      let interval = 500;
-      let digits = 1;
-      let count = 5;
+      let interval = 400;
+      let digits = 2;
+      let count = 3;
       let countdown = 3;
+      let answerTime = 6000;
       let mode = 1;
       let minimumNumber = 0;
       let maximumNumber = 0;
+      let colorOfText = '#08fe03';
+      let colorOfCountdown = '#ffffff'
       const CountdownPointer = document.querySelector('#Countdown');
       const NumbersPointer = document.querySelector('#Numbers');
       const AnswerBoxPointer = document.querySelector('#AnswerBox');
+      
+      NumbersPointer.style.color = colorOfText; 
+      CountdownPointer.style.color = colorOfCountdown;
 
       if (digits == 1) {
         minimumNumber = 1;
@@ -87,7 +93,7 @@
         AnswerBoxPointer.style.visibility = 'visible';
         document.getElementById('AnswerBox').value = '';
         
-        await delay(5000);
+        await delay(answerTime);
         let userInput = document.getElementById('AnswerBox').value;
         let answer = sum;
 
@@ -131,7 +137,6 @@
   }
 
   #Numbers {
-    color: #08fe03;
     font-family: sans-serif;
     font-weight: 500;
     font-size: 500px;
