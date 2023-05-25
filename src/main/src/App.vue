@@ -2,7 +2,7 @@
   <div id="App">
     <div id="CountdownContainer">
       <div id="Countdown"></div>
-    </div>``
+    </div>
     <div id="NumbersContainer">
       <div id="Numbers"></div>
     </div>
@@ -89,7 +89,7 @@
           NumbersPointer.innerHTML = number;
           await delay(interval/2);
           NumbersPointer.innerHTML = "";
-          await delay(interval/2)
+          await delay(interval/2);
         }
         AnswerBoxPointer.style.visibility = 'visible';
         document.getElementById('AnswerBox').value = '';
