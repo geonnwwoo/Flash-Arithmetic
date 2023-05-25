@@ -17,7 +17,7 @@
 <script>
   export default ({
     mounted() {
-      let interval = 400;
+      let interval = 2000;
       let digits = 2;
       let count = 3;
       let countdown = 3;
@@ -87,9 +87,10 @@
           let number = GetRandomNumber(minimumNumber, maximumNumber);
           sum += number;
           NumbersPointer.innerHTML = number;
-          await delay(interval);
+          await delay(interval/2);
+          NumbersPointer.innerHTML = "";
+          await delay(interval/2)
         }
-        NumbersPointer.innerHTML = "";
         AnswerBoxPointer.style.visibility = 'visible';
         document.getElementById('AnswerBox').value = '';
         
