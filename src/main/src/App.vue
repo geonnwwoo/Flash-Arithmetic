@@ -26,7 +26,32 @@
       </div>
     </div>
     <div id="Main">
+      <div id="GamemodeContainer">
+        <div class="GamemodeButton" id="TwoDigitsGamemode">
+          <div class="GamemodeName" id="GamemodeNameTwoDigits">Two Digits</div>
+          <div class="GamemodeTimeContainer" id="GamemodeTimeContainerTwoDigits">
 
+          </div>
+        </div>
+        <div class="GamemodeButton" id="OneDigitGamemode">
+          <div class="GamemodeName" id="GamemodeNameOneDigit">One Digit</div>
+          <div class="GamemodeTimeContainer" id="GamemodeTimeContainerOneDigit">
+
+          </div>
+        </div>
+        <div class="GamemodeButton" id="ThreeDigitsGamemode">
+          <div class="GamemodeName" id="GamemodeNameThreeDigits">Three Digits</div>
+          <div class="GamemodeTimeContainer" id="GamemodeTimeContainerThreeDigits">
+
+          </div>
+        </div>
+        <div class="GamemodeButton" id="PracticeGamemode">
+          <div class="GamemodeName" id="GamemodeNamePractice">Practice with the Abacus</div>
+          <div class="GamemodeTimeContainer" id="GamemodeTimeContainerPractice">
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +60,53 @@
 <script>
   export default ({
     mounted() {
+      // Functions
 
+      function ChangeDisplayGamemode() {
+        switch (currentGamemodeDisplay) {
+          case 0:
+            TwoDigitsGamemodePointer.style.visibility = 'hidden';
+            OneDigitGamemodePointer.style.visibility = 'visible';
+            currentGamemodeDisplay = 1;
+            break;
+          case 1:
+            OneDigitGamemodePointer.style.visibility = 'hidden';
+            ThreeDigitsGamemodePointer.style.visibility = 'visible';
+            currentGamemodeDisplay = 2;
+            break;
+          case 2:
+            ThreeDigitsGamemodePointer.style.visibility = 'hidden';
+            PracticeGamemodePointer.style.visibility = 'visible';
+            currentGamemodeDisplay = 3;
+            break;
+          case 3:
+            PracticeGamemodePointer.style.visibility = 'hidden';
+            TwoDigitsGamemodePointer.style.visibility = 'visible';
+            currentGamemodeDisplay = 0;
+            break;
+        }
+      }
+
+
+      // Main 
+
+      const GamemodeContainerPointer = document.querySelector('#GamemodeContainer');
+      const OneDigitGamemodePointer = document.querySelector('#OneDigitGamemode');
+      const TwoDigitsGamemodePointer = document.querySelector('#TwoDigitsGamemode');
+      const ThreeDigitsGamemodePointer = document.querySelector('#ThreeDigitsGamemode');
+      const PracticeGamemodePointer = document.querySelector('#PracticeGamemode');
+      let currentGamemodeDisplay = 0;
+
+
+      GamemodeContainerPointer.addEventListener('keydown', function(event){
+        if (event.key === 'space') {
+          ChangeDisplayGamemode();
+        }
+      });
+      
+      GamemodeContainerPointer.addEventListener('click', function(event) {
+        ChangeDisplayGamemode();
+      });
     },
     data() {
       return {
@@ -215,9 +286,74 @@
   }
 
   #Main { 
+    position: absolute;
+    top: 0%;
+    left: 0%;
     width: 100vw;
     height: 100vh;
     margin: 0px;
     overflow: hidden;
+  }
+
+  #GamemodeContainer {
+    width: 100vw;
+    height: 94vh;
+    padding: 5px;
+    margin: 0px;
+    overflow: hidden;
+    bottom: 0%;
+    left: 0%;
+  }
+
+  .GamemodeButton {
+    position: absolute;
+    width: 100vw;
+    height: 94vh;
+    bottom: 0%;
+    left: 0%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 5px;
+  }
+
+  #TwoDigitsGamemode {
+    /* https://coolors.co/394648-69995d-cbac88-edb6a3-f8e9e9 */
+    visibility: visible;
+    background-color: #394648;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+
+  #OneDigitGamemode {
+    /* https://coolors.co/493843-61988e-a0b2a6-cbbfbb-eabda8 */
+    visibility: hidden;
+    background-color: #493843;
+    justify-content: center;
+    align-items: center; 
+  }
+
+  #ThreeDigitsGamemode {
+    /* https://coolors.co/545f66-829399-d0f4ea-e8fcc2-b1cc74 */
+    visibility: hidden;
+    background-color: #545F66;
+    justify-content: center;
+    align-items: center; 
+  }
+
+  #PracticeGamemode {
+    /* https://coolors.co/f2545b-a93f55-19323c-f3f7f0-8c5e58 */
+    visibility: hidden;
+    background-color: #19323C;
+    justify-content: center;
+    align-items: center; 
+  }
+
+  .GamemodeName {
+    color: #ffffff;
+    font-size: 150px;
+    font-family: sans-serif;
+    font-weight: 650;
+    user-select: none;
   }
 </style>
