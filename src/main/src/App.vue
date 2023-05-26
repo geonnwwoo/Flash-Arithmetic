@@ -58,6 +58,9 @@
 
 
 <script>
+  const { ipcRenderer } = require('electron');
+  const fs = require('fs');
+
   export default ({
     mounted() {
       // Functions
@@ -87,6 +90,62 @@
         }
       }
 
+      function GamemodeChosen(gamemode) {
+        switch (gamemode) {
+          case 0:
+            let filePath0 = './../../assets/communication/gamemode.txt';
+            let content0 = '0';
+
+            fs.writeFile(filePath0, content0, 'utf8', (err) => {
+              if (err) {
+                console.error(err);
+                return;
+              }
+            });
+
+            ipcRenderer.send('ready for game', 'ready');
+            break;
+          case 1:
+            let filePath1 = './../../assets/communication/gamemode.txt';
+            let content1 = '1';
+
+            fs.writeFile(filePath1, content1, 'utf8', (err) => {
+              if (err) {
+                console.error(err);
+                return;
+              }
+            });
+
+            ipcRenderer.send('ready for game', 'ready');
+            break;
+          case 2:
+            let filePath2 = './../../assets/communication/gamemode.txt';
+            let content2 = '2';
+
+            fs.writeFile(filePath2, content2, 'utf8', (err) => {
+              if (err) {
+                console.error(err);
+                return;
+              }
+            });
+
+            ipcRenderer.send('ready for game', 'ready');
+            break;
+          case 3:
+            let filePath3 = './../../assets/communication/gamemode.txt';
+            let content3 = '3';
+
+            fs.writeFile(filePath3, content3, 'utf8', (err) => {
+              if (err) {
+                console.error(err);
+                return;
+              }
+            });
+            ipcRenderer.send('ready for game', 'ready');
+            break;
+        }
+      }
+
 
       // Main 
 
@@ -98,14 +157,14 @@
       let currentGamemodeDisplay = 0;
 
 
-      GamemodeContainerPointer.addEventListener('keydown', function(event){
-        if (event.key === 'space') {
+      document.addEventListener('keydown', function(event) {
+        if (event.code == "Space") {
           ChangeDisplayGamemode();
         }
       });
       
       GamemodeContainerPointer.addEventListener('click', function(event) {
-        ChangeDisplayGamemode();
+        GamemodeChosen(currentGamemodeDisplay);
       });
     },
     data() {
@@ -329,6 +388,7 @@
     /* https://coolors.co/493843-61988e-a0b2a6-cbbfbb-eabda8 */
     visibility: hidden;
     background-color: #493843;
+    display: flex;
     justify-content: center;
     align-items: center; 
   }
@@ -337,6 +397,7 @@
     /* https://coolors.co/545f66-829399-d0f4ea-e8fcc2-b1cc74 */
     visibility: hidden;
     background-color: #545F66;
+    display: flex;
     justify-content: center;
     align-items: center; 
   }
@@ -345,8 +406,13 @@
     /* https://coolors.co/f2545b-a93f55-19323c-f3f7f0-8c5e58 */
     visibility: hidden;
     background-color: #19323C;
+    display: flex;
     justify-content: center;
     align-items: center; 
+  }
+
+  #GamemodeNamePractice {
+    text-align: center;
   }
 
   .GamemodeName {

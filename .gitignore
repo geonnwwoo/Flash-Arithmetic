@@ -39,4 +39,5 @@ out/
 dist/
 
 # Backgrounds
-src/assets/hidden
+src/assets/communication/
+src/assets/hidden/
