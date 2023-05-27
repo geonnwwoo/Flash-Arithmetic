@@ -18,6 +18,8 @@ function createWindow () {
     }
   })
 
+  win.setBackgroundColor('#000000');
+
   win.loadFile('./src/main/dist/index.html');
   win.webContents.openDevTools();
 

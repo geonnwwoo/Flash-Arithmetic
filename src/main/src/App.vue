@@ -717,6 +717,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    height: 150px;
   }
 
   .TwoDigitsTimeButton {
@@ -724,6 +726,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    height: 150px;
   }
 
   .ThreeDigitsTimeButton {
@@ -731,5 +735,112 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    height: 150px;
+  }
+
+  .DigitsTimeButtonText {
+    color: #ffffff;
+    overflow: hidden;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 100px;
+    font-weight: 500;
+  }
+
+  #TwoDigitsTimeButton1 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #TwoDigitsTimeButton1:hover {
+    background-color: #2b3436;
+  }
+
+  #TwoDigitsTimeButton2 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #TwoDigitsTimeButton2:hover {
+    background-color: #2b3436;
+  }
+
+  #TwoDigitsTimeButton3 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #TwoDigitsTimeButton3:hover {
+    background-color: #2b3436;
+  }
+
+  #TwoDigitsTimeButton4 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #TwoDigitsTimeButton4:hover {
+    background-color: #2b3436;
+  }
+
+  #OneDigitTimeButton1 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #OneDigitTimeButton1:hover {
+    background-color: #372a32;
+  }
+
+  #OneDigitTimeButton2 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #OneDigitTimeButton2:hover {
+    background-color: #372a32;
+  }
+
+  #OneDigitTimeButton3 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #OneDigitTimeButton3:hover {
+    background-color: #372a32;
+  }
+
+  #OneDigitTimeButton4 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #OneDigitTimeButton4:hover {
+    background-color: #372a32;
+  }
+
+  #ThreeDigitsTimeButton1 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #ThreeDigitsTimeButton1:hover {
+    background-color: #3f474c;
+  }
+
+  #ThreeDigitsTimeButton2 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #ThreeDigitsTimeButton2:hover {
+    background-color: #3f474c;
+  }
+
+  #ThreeDigitsTimeButton3 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #ThreeDigitsTimeButton3:hover {
+    background-color: #3f474c;
+  }
+
+  #ThreeDigitsTimeButton4 {
+    transition: background-color 100ms ease-in;
+  }
+
+  #ThreeDigitsTimeButton4:hover {
+    background-color: #3f474c;
   }
 </style>
