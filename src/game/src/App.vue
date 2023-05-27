@@ -15,9 +15,12 @@
 
 
 <script>
+  const fs = require('fs');
+
   export default ({
     mounted() {
-      let interval = 2000;
+      const gameSettingsFilePath = './../../assets/communication/gamemode.txt'
+      let interval = 3000;
       let digits = 2;
       let count = 3;
       let countdown = 3;

@@ -30,19 +30,52 @@
         <div class="GamemodeButton" id="TwoDigitsGamemode">
           <div class="GamemodeName" id="GamemodeNameTwoDigits">Two Digits</div>
           <div class="GamemodeTimeContainer" id="GamemodeTimeContainerTwoDigits">
-
+            <div class="TwoDigitsTimeButton" id="TwoDigitsTimeButton1">
+              <div class="DigitsTimeButtonText" id="TwoDigitsTimeButtonText1">0.5s</div>
+            </div>
+            <div class="TwoDigitsTimeButton" id="TwoDigitsTimeButton2">
+              <div class="DigitsTimeButtonText" id="TwoDigitsTimeButtonText2">1s</div>
+            </div>
+            <div class="TwoDigitsTimeButton" id="TwoDigitsTimeButton3">
+              <div class="DigitsTimeButtonText" id="TwoDigitsTimeButtonText3">2s</div>
+            </div>
+            <div class="TwoDigitsTimeButton" id="TwoDigitsTimeButton4">
+              <div class="DigitsTimeButtonText" id="TwoDigitsTimeButtonText4">3s</div>
+            </div>
           </div>
         </div>
         <div class="GamemodeButton" id="OneDigitGamemode">
           <div class="GamemodeName" id="GamemodeNameOneDigit">One Digit</div>
           <div class="GamemodeTimeContainer" id="GamemodeTimeContainerOneDigit">
-
+            <div class="OneDigitTimeButton" id="OneDigitTimeButton1">
+              <div class="DigitsTimeButtonText" id="OneDigitTimeButtonText1">0.2s</div>
+            </div>
+            <div class="OneDigitTimeButton" id="OneDigitTimeButton2">
+              <div class="DigitsTimeButtonText" id="OneDigitTimeButtonText2">0.3s</div>
+            </div>
+            <div class="OneDigitTimeButton" id="OneDigitTimeButton3">
+              <div class="DigitsTimeButtonText" id="OneDigitTimeButtonText3">0.5s</div>
+            </div>
+            <div class="OneDigitTimeButton" id="OneDigitTimeButton4">
+              <div class="DigitsTimeButtonText" id="OneDigitTimeButtonText4">1s</div>
+            </div>
           </div>
         </div>
         <div class="GamemodeButton" id="ThreeDigitsGamemode">
           <div class="GamemodeName" id="GamemodeNameThreeDigits">Three Digits</div>
           <div class="GamemodeTimeContainer" id="GamemodeTimeContainerThreeDigits">
-
+            <div class="ThreeDigitsTimeButton" id="ThreeDigitsTimeButton1">
+              <div class="DigitsTimeButtonText" id="ThreeDigitsTimeButtonText1">1s</div>
+            </div>
+            <div class="ThreeDigitsTimeButton" id="ThreeDigitsTimeButton2">
+              <div class="DigitsTimeButtonText" id="ThreeDigitsTimeButtonText2">2s</div>
+            </div>
+            <div class="ThreeDigitsTimeButton" id="ThreeDigitsTimeButton3">
+              <div class="DigitsTimeButtonText" id="ThreeDigitsTimeButtonText3">3s</div>
+            </div>
+            <div class="ThreeDigitsTimeButton" id="ThreeDigitsTimeButton4">
+              <div class="DigitsTimeButtonText" id="ThreeDigitsTimeButtonText4">4s</div>
+            </div>
           </div>
         </div>
         <div class="GamemodeButton" id="PracticeGamemode">
@@ -90,71 +123,30 @@
         }
       }
 
-      function GamemodeChosen(gamemode) {
-        switch (gamemode) {
-          case 0:
-            let filePath0 = './../../assets/communication/gamemode.txt';
-            let content0 = '0';
-
-            fs.writeFile(filePath0, content0, 'utf8', (err) => {
-              if (err) {
-                console.error(err);
-                return;
-              }
-            });
-
-            ipcRenderer.send('ready for game', 'ready');
-            break;
-          case 1:
-            let filePath1 = './../../assets/communication/gamemode.txt';
-            let content1 = '1';
-
-            fs.writeFile(filePath1, content1, 'utf8', (err) => {
-              if (err) {
-                console.error(err);
-                return;
-              }
-            });
-
-            ipcRenderer.send('ready for game', 'ready');
-            break;
-          case 2:
-            let filePath2 = './../../assets/communication/gamemode.txt';
-            let content2 = '2';
-
-            fs.writeFile(filePath2, content2, 'utf8', (err) => {
-              if (err) {
-                console.error(err);
-                return;
-              }
-            });
-
-            ipcRenderer.send('ready for game', 'ready');
-            break;
-          case 3:
-            let filePath3 = './../../assets/communication/gamemode.txt';
-            let content3 = '3';
-
-            fs.writeFile(filePath3, content3, 'utf8', (err) => {
-              if (err) {
-                console.error(err);
-                return;
-              }
-            });
-            ipcRenderer.send('ready for game', 'ready');
-            break;
-        }
-      }
-
 
       // Main 
 
-      const GamemodeContainerPointer = document.querySelector('#GamemodeContainer');
       const OneDigitGamemodePointer = document.querySelector('#OneDigitGamemode');
       const TwoDigitsGamemodePointer = document.querySelector('#TwoDigitsGamemode');
       const ThreeDigitsGamemodePointer = document.querySelector('#ThreeDigitsGamemode');
       const PracticeGamemodePointer = document.querySelector('#PracticeGamemode');
+      const OneDigitTimeButtonText1Pointer = document.querySelector('#OneDigitTimeButtonText1');
+      const OneDigitTimeButtonText2Pointer = document.querySelector('#OneDigitTimeButtonText2');
+      const OneDigitTimeButtonText3Pointer = document.querySelector('#OneDigitTimeButtonText3');
+      const OneDigitTimeButtonText4Pointer = document.querySelector('#OneDigitTimeButtonText4');
+      const TwoDigitsButtonText1Pointer = document.querySelector('#TwoDigitsTimeButtonText1');
+      const TwoDigitsButtonText2Pointer = document.querySelector('#TwoDigitsTimeButtonText2');
+      const TwoDigitsButtonText3Pointer = document.querySelector('#TwoDigitsTimeButtonText3');
+      const TwoDigitsButtonText4Pointer = document.querySelector('#TwoDigitsTimeButtonText4');
+      const ThreeDigitsButtonText1Pointer = document.querySelector('#ThreeDigitsTimeButtonText1');
+      const ThreeDigitsButtonText2Pointer = document.querySelector('#ThreeDigitsTimeButtonText2');
+      const ThreeDigitsButtonText3Pointer = document.querySelector('#ThreeDigitsTimeButtonText3');
+      const ThreeDigitsButtonText4Pointer = document.querySelector('#ThreeDigitsTimeButtonText4');
+      const GamemodeSettingsJSONFilePath = './../../assets/communication/gamemodesettings.json';
       let currentGamemodeDisplay = 0;
+      let CountdownNumber = 3;
+      let CountdownColor = '#ffffff';
+      let NumbersColor = '#08fe03';
 
 
       document.addEventListener('keydown', function(event) {
@@ -163,8 +155,268 @@
         }
       });
       
-      GamemodeContainerPointer.addEventListener('click', function(event) {
-        GamemodeChosen(currentGamemodeDisplay);
+      OneDigitTimeButtonText1Pointer.addEventListener('click', function(event) {
+        // 0.2s
+        let jsonObject = {
+          interval: 200,
+          countdown: CountdownNumber,
+          digits: 1,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
+      });
+
+      OneDigitTimeButtonText2Pointer.addEventListener('click', function(event) {
+        // 0.3s
+        let jsonObject = {
+          interval: 300,
+          countdown: CountdownNumber,
+          digits: 1,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
+      });
+
+      OneDigitTimeButtonText3Pointer.addEventListener('click', function(event) {
+        // 0.5s
+        let jsonObject = {
+          interval: 500,
+          countdown: CountdownNumber,
+          digits: 1,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
+      });
+
+      OneDigitTimeButtonText4Pointer.addEventListener('click', function(event) {
+        // 1s
+        let jsonObject = {
+          interval: 1000,
+          countdown: CountdownNumber,
+          digits: 1,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
+      });
+
+      TwoDigitsButtonText1Pointer.addEventListener('click', function(event) {
+        // 0.5s
+        let jsonObject = {
+          interval: 500,
+          countdown: CountdownNumber,
+          digits: 2,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
+      });
+
+      TwoDigitsButtonText2Pointer.addEventListener('click', function(event) {
+        // 1s
+        let jsonObject = {
+          interval: 1000,
+          countdown: CountdownNumber,
+          digits: 2,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
+      });
+
+      TwoDigitsButtonText3Pointer.addEventListener('click', function(event) {
+        // 2s
+        let jsonObject = {
+          interval: 2000,
+          countdown: CountdownNumber,
+          digits: 2,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
+      });
+
+      TwoDigitsButtonText4Pointer.addEventListener('click', function(event) {
+        // 3s
+        let jsonObject = {
+          interval: 3000,
+          countdown: CountdownNumber,
+          digits: 2,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
+      });
+
+      ThreeDigitsButtonText1Pointer.addEventListener('click', function(event) {
+        // 1s
+        let jsonObject = {
+          interval: 1000,
+          countdown: CountdownNumber,
+          digits: 3,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
+      });
+
+      ThreeDigitsButtonText2Pointer.addEventListener('click', function(event) {
+        // 2s
+        let jsonObject = {
+          interval: 2000,
+          countdown: CountdownNumber,
+          digits: 3,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
+      });
+
+      ThreeDigitsButtonText3Pointer.addEventListener('click', function(event) {
+        // 3s
+        let jsonObject = {
+          interval: 3000,
+          countdown: CountdownNumber,
+          digits: 3,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
+      });
+
+      ThreeDigitsButtonText4Pointer.addEventListener('click', function(event) {
+        // 4s
+        let jsonObject = {
+          interval: 4000,
+          countdown: CountdownNumber,
+          digits: 3,
+          countdownColor: CountdownColor,
+          numbersColor: NumbersColor
+        }
+
+        let jsonString = JSON.stringify(jsonObject, null, 2);
+
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        });
+
+        ipcRenderer.send('ready for game', 'ready');
       });
     },
     data() {
@@ -421,5 +673,33 @@
     font-family: sans-serif;
     font-weight: 650;
     user-select: none;
+  }
+
+  .GamemodeTimeContainer {
+    
+  }
+
+  #GamemodeTimeContainerOneDigit {
+
+  }
+
+  #GamemodeTimeContainerTwoDigits {
+
+  }
+
+  #GamemodeTimeContainerThreeDigits {
+
+  }
+
+  .OneDigitTimeButton {
+
+  }
+
+  .TwoDigitsTimeButton {
+
+  }
+
+  .ThreeDigitsTimeButton {
+
   }
 </style>
