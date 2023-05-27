@@ -24,33 +24,6 @@
 
   export default ({
     mounted() {
-      const gameSettingsFilePath = __dirname + '/../../assets/communication/gamemodesettings.txt';
-      let gameSettings = '';
-
-      fs.readFile(gameSettingsFilePath, (err, data) => {
-        if (err) {
-          throw err;
-        }
-        const uint8Array = new Uint8Array(data);
-        const characterCodes = Array.from(uint8Array);
-        const characters = characterCodes.map(code => String.fromCharCode(code));
-        const resultData = characters.join('');
-        const gameSettings = JSON.parse(resultData)
-        interval = gameSettings.interval;
-        digits = gameSettings.digits;
-        count = gameSettings.numbers;
-        countdown = gameSettings.countdown;
-        answerTime = 6000;
-        mode = 1;
-        minimumNumber = 0;
-        maximumNumber = 0;
-        colorOfText = gameSettings.numbersColor;
-        colorOfCountdown = gameSettings.countdownColor;
-        StartAll();
-
-        console.log(gameSettings);
-      });
-      
       let interval = 0;
       let digits = 0;
       let count = 0;
@@ -65,23 +38,51 @@
       const NumbersPointer = document.querySelector('#Numbers');
       const AnswerBoxPointer = document.querySelector('#AnswerBox');
       const EllipsesWarningPointer = document.querySelector('#EllipsesWarning');
-      
-      if (digits == 1) {
-        minimumNumber = 1;
-        maximumNumber = 9;
-      }
-      else if (digits == 2) {
-        minimumNumber = 10;
-        maximumNumber = 99;
-      }
-      else if (digits == 3) {
-        minimumNumber = 100;
-        maximumNumber = 999;
-      }
-      else if (digits == 4) {
-        minimumNumber = 1000;
-        maximumNumber = 9999;
-      }
+      const gameSettingsFilePath = __dirname + '/../../assets/communication/gamemodesettings.txt';
+      let gameSettings = '';
+
+      fs.readFile(gameSettingsFilePath, (err, data) => {
+        if (err) {
+          throw err;
+        }
+        const uint8Array = new Uint8Array(data);
+        const characterCodes = Array.from(uint8Array);
+        const characters = characterCodes.map(code => String.fromCharCode(code));
+        const resultData = characters.join('');
+        const gameSettings = JSON.parse(resultData);
+        interval = gameSettings.interval;
+        digits = gameSettings.digits;
+        count = gameSettings.numbers;
+        countdown = gameSettings.countdown;
+        answerTime = 6000;
+        mode = 1;
+        minimumNumber = 0;
+        maximumNumber = 0;
+        colorOfText = gameSettings.numbersColor;
+        colorOfCountdown = gameSettings.countdownColor;
+
+        if (digits == 1) {
+          minimumNumber = 1;
+          maximumNumber = 9;
+        }
+        else if (digits == 2) {
+          minimumNumber = 10;
+          maximumNumber = 99;
+        }
+        else if (digits == 3) {
+          minimumNumber = 100;
+          maximumNumber = 999;
+        }
+        else if (digits == 4) {
+          minimumNumber = 1000;
+          maximumNumber = 9999;
+        }
+
+        NumbersPointer.style.color = colorOfText;
+        CountdownPointer.style.color = colorOfCountdown;
+
+        StartAll();
+      });
 
       function GetRandomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -159,7 +160,6 @@
   }
 
   #Countdown {
-    color: #ffffff;
     font-family: sans-serif;
     font-size: 150px;
     width: 100vw;
