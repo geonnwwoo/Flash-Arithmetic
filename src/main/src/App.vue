@@ -142,7 +142,7 @@
       const ThreeDigitsButtonText2Pointer = document.querySelector('#ThreeDigitsTimeButtonText2');
       const ThreeDigitsButtonText3Pointer = document.querySelector('#ThreeDigitsTimeButtonText3');
       const ThreeDigitsButtonText4Pointer = document.querySelector('#ThreeDigitsTimeButtonText4');
-      const GamemodeSettingsJSONFilePath = './../../assets/communication/gamemodesettings.json';
+      const GamemodeSettingsJSONFilePath = __dirname + '/../../assets/communication/gamemodesettings.txt';
       let currentGamemodeDisplay = 0;
       let CountdownNumber = 3;
       let CountdownColor = '#ffffff';
@@ -167,7 +167,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
@@ -189,7 +189,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
@@ -211,7 +211,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
@@ -233,7 +233,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
@@ -255,7 +255,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
@@ -277,7 +277,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
@@ -299,7 +299,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
@@ -321,7 +321,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
@@ -343,7 +343,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
@@ -365,7 +365,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
@@ -387,7 +387,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
@@ -409,7 +409,7 @@
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
 
-        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, 'utf8', (err) => {
+        fs.writeFile(GamemodeSettingsJSONFilePath, jsonString, (err) => {
           if (err) {
             console.error(err);
             return;
