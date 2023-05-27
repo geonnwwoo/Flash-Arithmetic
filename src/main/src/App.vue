@@ -147,6 +147,7 @@
       let CountdownNumber = 3;
       let CountdownColor = '#ffffff';
       let NumbersColor = '#08fe03';
+      let NumberofNumbers = 5;
 
 
       document.addEventListener('keydown', function(event) {
@@ -162,7 +163,8 @@
           countdown: CountdownNumber,
           digits: 1,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
@@ -184,7 +186,8 @@
           countdown: CountdownNumber,
           digits: 1,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
@@ -206,7 +209,8 @@
           countdown: CountdownNumber,
           digits: 1,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
@@ -228,7 +232,8 @@
           countdown: CountdownNumber,
           digits: 1,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
@@ -250,7 +255,8 @@
           countdown: CountdownNumber,
           digits: 2,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
@@ -272,7 +278,8 @@
           countdown: CountdownNumber,
           digits: 2,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
@@ -294,7 +301,8 @@
           countdown: CountdownNumber,
           digits: 2,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
@@ -316,7 +324,8 @@
           countdown: CountdownNumber,
           digits: 2,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
@@ -338,7 +347,8 @@
           countdown: CountdownNumber,
           digits: 3,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
@@ -360,7 +370,8 @@
           countdown: CountdownNumber,
           digits: 3,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
@@ -382,7 +393,8 @@
           countdown: CountdownNumber,
           digits: 3,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
@@ -404,7 +416,8 @@
           countdown: CountdownNumber,
           digits: 3,
           countdownColor: CountdownColor,
-          numbersColor: NumbersColor
+          numbersColor: NumbersColor,
+          numbers: NumberofNumbers
         }
 
         let jsonString = JSON.stringify(jsonObject, null, 2);
