@@ -673,33 +673,63 @@
     font-family: sans-serif;
     font-weight: 650;
     user-select: none;
+    text-align: center;
+    width: 50vw;
+    height: 500px;
+    padding: 5px;
   }
 
   .GamemodeTimeContainer {
-    
+    width: 50vw;
+    height: 94vh;
+    padding: 5px;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  #GamemodeNamePractice {
+    height: 700px;
   }
 
   #GamemodeTimeContainerOneDigit {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   #GamemodeTimeContainerTwoDigits {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   #GamemodeTimeContainerThreeDigits {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .OneDigitTimeButton {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .TwoDigitsTimeButton {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .ThreeDigitsTimeButton {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 </style>
