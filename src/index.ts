@@ -20,16 +20,8 @@ function createWindow () {
 
   win.setBackgroundColor('#000000');
 
-  win.loadFile('./src/main/dist/index.html');
+  win.loadFile('./src/game/dist/index.html');
   win.webContents.openDevTools();
-
-  ipc.on('ready for game', function() {
-    win.loadFile(path.join(__dirname, './game/dist/index.html'));
-  });
-
-  ipc.on('back to main', function() {
-    win.loadFile(path.join(__dirname, './main/dist/index.html'));
-  })
 }
 
 app.whenReady().then(() => {
