@@ -36,7 +36,15 @@
     <div class="Page" id="GamePage">
       <div class="GamePageObject" id="GameNumbers"></div>
     </div>
-    <div class="Page" id="GuessPage"></div>
+    <div class="Page" id="GuessPage">
+      <div id="GuessPageMain">
+        <input class="GuessPageObject" id="GuessInput" type="text">
+        <div class="GuessPageObject" id="GuessInformation">
+          <div id="GuessInformationText">Enter the answer and press the [Enter] button</div>
+        </div>
+      </div>
+      <div class="StartPageRedirect" id="GuessPageStartPageRedirect">Start Screen</div>
+    </div>
     <div class="Page" id="CorrectPage"></div>
     <div class="Page" id="IncorrectPage"></div>
   </div>
@@ -58,6 +66,17 @@
         if (typeof str != "string") return false;
         return !isNaN(str) &&
               !isNaN(parseFloat(str));
+      }
+
+      function StartGuess() {
+        mode = 4;
+        const GamePagePointer = document.querySelector('#GamePage');
+        const GuessPagePointer = document.querySelector('#GuessPage');
+
+        GamePagePointer.style.visibility = 'hidden';
+        GuessPagePointer.style.visibility = 'visible';
+
+
       }
 
       function generateNumber(n) {
@@ -97,7 +116,7 @@
           await delay(interval*500);
         }
 
-        //StartGuess();
+        StartGuess();
       }
 
       function ConfirmScreenWait() {
@@ -142,10 +161,10 @@
       document.addEventListener('keydown', function(event) {
         if (event.code == 'Escape' && mode == 2) {
           mode = 1;
-          const StartScreenPointer = document.querySelector('#StartScreen');
-          const ConfirmPagePointer = document.querySelector('ConfirmPage');
+          const StartPagePointer = document.querySelector('#StartPage');
+          const ConfirmPagePointer = document.querySelector('#ConfirmPage');
 
-          StartScreenPointer.style.visibility = 'visible';
+          StartPagePointer.style.visibility = 'visible';
           ConfirmPagePointer.style.visibility = 'hidden';
         }
       })
@@ -339,12 +358,7 @@
   }
 
   #GamePage {
-    position: absolute;
-    margin: 0px;
-    width: 100vw;
-    height: 100vh;
-    left: 0%;
-    top: 0%;
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -356,5 +370,78 @@
     color: #02ff00;
     font-weight: 500;
     text-align: center;
+  }
+
+  #GuessPage {
+    background-color: #b1b1b1;
+  }
+
+  #GuessPageMain {
+    position: absolute;
+    height: 80vh;
+    width: 100vw;
+    left: 0%;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 120px;
+  }
+
+  #GuessInput {
+    border: 0px solid;
+    width: 55vw;
+    height: 100px;
+    overflow: hidden;
+    font-family: sans-serif;
+    color: #2c2c2c;
+    font-size: 95px;
+    outline: none;
+    text-align: center;
+  }
+
+  #GuessInformation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    overflow: hidden;
+    width: 100vw;
+    height: 120px;
+    background-color: #ffffff;
+  }
+
+  #GuessInformationText {
+    color: #000000;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    user-select: none;
+  }
+
+  #GuessPageStartPageRedirect {
+    margin: 20px;
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    padding: 20px;
+    border-radius: 25px;
+    border: 5px solid #ffffff;
+    width: 120px;
+    height: 22px;
+    font-size: 20px;
+    user-select: none;
+    color: #3c66bc;
+    text-align: center;
+    font-family: sans-serif;
+    transition: 100ms background-color ease-in;
+  }
+
+  #GuessPageStartPageRedirect:hover {
+    background-color: #a5a5a5;
   }
 </style>
