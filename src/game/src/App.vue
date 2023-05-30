@@ -55,16 +55,11 @@
               !isNaN(parseFloat(str));
       }
 
-      function delay(time) {
-        setTimeout(function() {
-        }, time);
-      }
-
       async function StartGame() {
 
       }
 
-      async function ConfirmScreenWait() {
+      function ConfirmScreenWait() {
         mode = 2;
         const StartPagePointer = document.querySelector('#StartPage');
         const ConfirmPagePointer = document.querySelector('#ConfirmPage');
@@ -74,11 +69,11 @@
         StartPagePointer.style.visibility = 'hidden';
         ConfirmPagePointer.style.visibility = 'visible';
 
-        await delay(3000);
-
-        if (mode == 2) {
-          //StartGame();
-        }
+        setTimeout(function() {
+          if (mode == 2) {
+            //StartGame();
+          }
+        }, 3000)
       }
 
 
