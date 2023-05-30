@@ -68,17 +68,6 @@
               !isNaN(parseFloat(str));
       }
 
-      function StartGuess() {
-        mode = 4;
-        const GamePagePointer = document.querySelector('#GamePage');
-        const GuessPagePointer = document.querySelector('#GuessPage');
-
-        GamePagePointer.style.visibility = 'hidden';
-        GuessPagePointer.style.visibility = 'visible';
-
-
-      }
-
       function generateNumber(n) {
         if (n <= 0) {
           alert("Invalid digit count: the number of digits should be greater than zero.");
@@ -87,6 +76,50 @@
         const min = Math.pow(10, n - 1);
         const max = Math.pow(10, n) - 1;
         return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function StartGuess() {
+        mode = 4;
+        const GamePagePointer = document.querySelector('#GamePage');
+        const GuessPagePointer = document.querySelector('#GuessPage');
+
+        GamePagePointer.style.visibility = 'hidden';
+        GuessPagePointer.style.visibility = 'visible';
+      }
+
+      function GuessPageEnterPressed() {
+        const GuessInputPointer = document.querySelector('#GuessInput');
+
+        if (isStringConvertibleToInt(GuessInputPointer.value) == false) {
+          GuessInputPointer.value = '';
+          alert('Invalid Answer: answer needs to be a number');
+        }
+        else if (GuessInputPointer.value == sum) {
+          GuessInputPointer.value = '';
+          CorrectAnswer();
+        }
+        else {
+          GuessInputPointer.value = '';
+          IncorrectAnswer();
+        }
+      }
+
+      function CorrectAnswer() {
+        mode = 5;
+        const GuessPagePointer = document.querySelector('#GuessPage');
+        const CorrectPagePointer = document.querySelector('#CorrectPage');
+
+        GuessPagePointer.style.visibility = 'hidden';
+        CorrectPagePointer.style.visibility = 'visible';
+      }
+
+      function IncorrectAnswer() {
+        mode = 5;
+        const GuessPagePointer = document.querySelector('#GuessPage');
+        const IncorrectPagePointer = document.querySelector('#IncorrectPage');
+
+        GuessPagePointer.style.visibility = 'hidden';
+        IncorrectPagePointer.style.visibility = 'visible'
       }
 
       async function StartGame() {
@@ -152,12 +185,13 @@
               ConfirmScreenWait();
             }
             else {
-              alert('All input values must be integers');
+              alert('Invalid Answer: all input values must be numbers');
             }
           }
         }
       });
 
+      // Returning to Start Page via Escape Button
       document.addEventListener('keydown', function(event) {
         if (event.code == 'Escape' && mode == 2) {
           mode = 1;
@@ -166,6 +200,13 @@
 
           StartPagePointer.style.visibility = 'visible';
           ConfirmPagePointer.style.visibility = 'hidden';
+        }
+      });
+
+      //EventListener for enter button for Guess Page
+      document.addEventListener('keydown', function(event) {
+        if (event.code == 'Enter' && mode == 4) {
+          GuessPageEnterPressed();
         }
       })
     },
