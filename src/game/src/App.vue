@@ -33,7 +33,9 @@
       </div>
       <div class="StartPageRedirect" id="ConfirmPageStartPageRedirect">Start Screen</div>
     </div>
-    <div class="Page" id="GamePage"></div>
+    <div class="Page" id="GamePage">
+      <div class="GamePageObject" id="GameNumbers"></div>
+    </div>
     <div class="Page" id="GuessPage"></div>
     <div class="Page" id="CorrectPage"></div>
     <div class="Page" id="IncorrectPage"></div>
@@ -48,6 +50,9 @@
       let interval = 0;
       let count = 0;
       let digits = 0;
+      let sum = 0;
+
+      const delay = ms => new Promise(res => setTimeout(res, ms));
 
       function isStringConvertibleToInt(str) {
         if (typeof str != "string") return false;
@@ -55,8 +60,44 @@
               !isNaN(parseFloat(str));
       }
 
-      async function StartGame() {
+      function generateNumber(n) {
+        if (n <= 0) {
+          alert("Invalid digit count: the number of digits should be greater than zero.");
+        }
 
+        const min = Math.pow(10, n - 1);
+        const max = Math.pow(10, n) - 1;
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      async function StartGame() {
+        mode = 3;
+        const ConfirmPagePointer = document.querySelector('#ConfirmPage');
+        const GamePagePointer = document.querySelector('#GamePage');
+        const GameNumbersPointer = document.querySelector('#GameNumbers');
+
+        GameNumbersPointer.innerHTML = '';
+        ConfirmPagePointer.style.visibility = 'hidden';
+        GamePagePointer.style.visibility = 'visible';
+
+        for (var i=0; i<2; i++) {
+          //PlayCountdownSound()
+          await delay(1000);
+        }
+
+        sum = 0;
+
+        for (var i=0; i<count; i++) {
+          let randomNumber = generateNumber(digits);
+          sum += randomNumber;
+          GameNumbersPointer.innerHTML = randomNumber;
+          await delay(interval*500);
+
+          GameNumbersPointer.innerHTML = '';
+          await delay(interval*500);
+        }
+
+        //StartGuess();
       }
 
       function ConfirmScreenWait() {
@@ -71,7 +112,7 @@
 
         setTimeout(function() {
           if (mode == 2) {
-            //StartGame();
+            StartGame();
           }
         }, 3000)
       }
@@ -295,5 +336,25 @@
 
   #ConfirmPageStartPageRedirect:hover {
     background-color: #a5a5a5;
+  }
+
+  #GamePage {
+    position: absolute;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    left: 0%;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #GameNumbers {
+    font-family: sans-serif;
+    font-size: 300px;
+    color: #02ff00;
+    font-weight: 500;
+    text-align: center;
   }
 </style>
