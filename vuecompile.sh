@@ -1,5 +1,5 @@
 #!/bin/sh
-cd src/English || exit 1
+cd src/game || exit 1
 npm run build || exit 1
 cd ../.. || exit 1
 
