@@ -20,7 +20,7 @@ function createWindow () {
 
   win.setBackgroundColor('#000000');
 
-  win.loadFile('./src/game/dist/index.html');
+  win.loadFile('./src/English/dist/index.html');
   win.webContents.openDevTools();
 }
 
