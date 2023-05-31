@@ -16,7 +16,7 @@ function createWindow () {
       nodeIntegration: true,
       contextIsolation: false
     }
-  })
+  });
 
   win.setBackgroundColor('#000000');
 
