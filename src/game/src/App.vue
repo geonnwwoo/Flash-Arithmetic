@@ -45,8 +45,12 @@
       </div>
       <div class="StartPageRedirect" id="GuessPageStartPageRedirect">Start Screen</div>
     </div>
-    <div class="Page" id="CorrectPage"></div>
-    <div class="Page" id="IncorrectPage"></div>
+    <div class="Page" id="CorrectPage">
+      <div class="StartPageRedirect" id="CorrectPageStartPageRedirect">Start Screen</div>
+    </div>
+    <div class="Page" id="IncorrectPage">
+      <div class="StartPageRedirect" id="IncorrectPageStartPageRedirect">Start Screen</div>
+    </div>
   </div>
 </template>
 
@@ -500,7 +504,51 @@
     background-color: #b5ff86;
   }
 
+  #CorrectPageStartPageRedirect {
+    margin: 20px;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    padding: 20px;
+    border-radius: 25px;
+    border: 5px solid #ffffff;
+    width: 120px;
+    height: 22px;
+    font-size: 20px;
+    user-select: none;
+    color: #3c66bc;
+    text-align: center;
+    font-family: sans-serif;
+    transition: 100ms background-color ease-in;
+  }
+
+  #CorrectPageStartPageRedirect:hover {
+    background-color: #a4ff6b
+  }
+
   #IncorrectPage {
     background-color: #fc0017;
+  }
+
+  #IncorrectPageStartPageRedirect {
+    margin: 20px;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    padding: 20px;
+    border-radius: 25px;
+    border: 5px solid #ffffff;
+    width: 120px;
+    height: 22px;
+    font-size: 20px;
+    user-select: none;
+    color: #3c66bc;
+    text-align: center;
+    font-family: sans-serif;
+    transition: 100ms background-color ease-in;
+  }
+
+  #IncorrectPageStartPageRedirect:hover {
+    background-color: #ea0015;
   }
 </style>
