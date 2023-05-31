@@ -201,6 +201,16 @@
           StartPagePointer.style.visibility = 'visible';
           ConfirmPagePointer.style.visibility = 'hidden';
         }
+        else if (event.code == 'Escape' && mode == 5) {
+          mode = 1;
+          const StartPagePointer = document.querySelector('#StartPage');
+          const CorrectPagePointer = document.querySelector('#CorrectPage');
+          const IncorrectPagePointer = document.querySelector('#IncorrectPage');
+
+          StartPagePointer.style.visibility = 'visible';
+          CorrectPagePointer.style.visibility = 'hidden';
+          IncorrectPagePointer.style.visibility = 'hidden';
+        }
       });
 
       //EventListener for enter button for Guess Page
@@ -484,5 +494,13 @@
 
   #GuessPageStartPageRedirect:hover {
     background-color: #a5a5a5;
+  }
+
+  #CorrectPage {
+    background-color: #b5ff86;
+  }
+
+  #IncorrectPage {
+    background-color: #fc0017;
   }
 </style>
