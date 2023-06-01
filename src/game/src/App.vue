@@ -47,9 +47,16 @@
     </div>
     <div class="Page" id="CorrectPage">
       <div class="StartPageRedirect" id="CorrectPageStartPageRedirect">Start Screen</div>
+      <div id="CorrectPageMain"></div>
     </div>
     <div class="Page" id="IncorrectPage">
       <div class="StartPageRedirect" id="IncorrectPageStartPageRedirect">Start Screen</div>
+      <div id="IncorrectPageMain">
+        <div id="IncorrectPageBar">
+          <div id="IncorrectPageCorrectAnswer"></div>
+        </div>
+        <div id="IncorrectPageNumbers"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -112,18 +119,39 @@
         mode = 5;
         const GuessPagePointer = document.querySelector('#GuessPage');
         const CorrectPagePointer = document.querySelector('#CorrectPage');
+        const CorrectPageStartPageRedirectPointer = document.querySelector('#CorrectPageStartPageRedirect');
 
         GuessPagePointer.style.visibility = 'hidden';
         CorrectPagePointer.style.visibility = 'visible';
+
+        CorrectPageStartPageRedirectPointer.addEventListener('click', function(event) {
+          mode = 1;
+          const StartPagePointer = document.querySelector('#StartPage');
+          const CorrectPagePointer = document.querySelector('#CorrectPage');
+
+          StartPagePointer.style.visibility = 'visible';
+          CorrectPagePointer.style.visibility = 'hidden';
+        });
       }
 
       function IncorrectAnswer() {
         mode = 5;
         const GuessPagePointer = document.querySelector('#GuessPage');
         const IncorrectPagePointer = document.querySelector('#IncorrectPage');
+        const IncorrectPageCorrectAnswerPointer = document.querySelector('#IncorrectPageCorrectAnswer');
+        const IncorrectPageStartPageRedirectPointer = document.querySelector('#IncorrectPageStartPageRedirect');
 
         GuessPagePointer.style.visibility = 'hidden';
-        IncorrectPagePointer.style.visibility = 'visible'
+        IncorrectPagePointer.style.visibility = 'visible';
+        IncorrectPageCorrectAnswerPointer.innerHTML = sum;
+
+        IncorrectPageStartPageRedirectPointer.addEventListener('click', function(event) {
+          const StartPagePointer = document.querySelector('#StartPage');
+          const IncorrectPagePointer = document.querySelector('#IncorrectPage');
+
+          StartPagePointer.style.visibility = 'visible';
+          IncorrectPagePointer.style.visibility = 'hidden';
+        });
       }
 
       async function StartGame() {
@@ -222,7 +250,7 @@
         if (event.code == 'Enter' && mode == 4) {
           GuessPageEnterPressed();
         }
-      })
+      });
     },
   })
 </script>
