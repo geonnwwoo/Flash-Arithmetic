@@ -146,6 +146,7 @@
         IncorrectPageCorrectAnswerPointer.innerHTML = sum;
 
         IncorrectPageStartPageRedirectPointer.addEventListener('click', function(event) {
+          mode = 1;
           const StartPagePointer = document.querySelector('#StartPage');
           const IncorrectPagePointer = document.querySelector('#IncorrectPage');
 
@@ -175,10 +176,10 @@
           let randomNumber = generateNumber(digits);
           sum += randomNumber;
           GameNumbersPointer.innerHTML = randomNumber;
-          await delay(interval*500);
+          await delay(interval*5000/6);
 
           GameNumbersPointer.innerHTML = '';
-          await delay(interval*500);
+          await delay(interval*1000/6);
         }
 
         StartGuess();
@@ -453,6 +454,7 @@
     color: #02ff00;
     font-weight: 500;
     text-align: center;
+    user-select: none;
   }
 
   #GuessPage {
