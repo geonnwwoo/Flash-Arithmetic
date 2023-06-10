@@ -1,29 +1,31 @@
 <template>
   <div id="App">
     <div class="Page" id="StartPage">
+      <div class="StartPageObject" id="StartPageContinue">スタート</div>
       <div id="StartPageMain">
         <div class="StartPageObject" id="PickerContainer">
           <div class="PickerContainers" id="DigitsPickerContainer">
             <input class="Picker" id="DigitsPicker" type="text">
-            <div class="PickerText" id="DigitsText">digits</div>
+            <div class="PickerText" id="DigitsText">桁</div>
           </div>
           <div class="PickerContainers" id="NumberPickerContainer">
             <input class="Picker" id="NumberPicker" type="text">
-            <div class="PickerText" id="NumberText">numbers</div>
+            <div class="PickerText" id="NumberText">口</div>
           </div>
           <div class="PickerContainers" id="IntervalPickerContainer">
+            <div class="PickerText" id="IntervalText1">約</div>
             <input class="Picker" id="IntervalPicker" type="text">
-            <div class="PickerText" id="IntervalText">seconds</div>
+            <div class="PickerText" id="IntervalText2">秒</div>
           </div>
         </div>
         <div class="StartPageObject" id="PickerInfoBar">
-          <div class="PickerInfoBarObject" id="DigitsInfo">Number of Digits</div>
-          <div class="PickerInfoBarObject" id="NumbersInfo">Number of Displayed Numbers</div>
-          <div class="PickerInfoBarObject" id="IntervalInfo">Interval between Numbers</div>
+          <div class="PickerInfoBarObject" id="DigitsInfo">表示桁数</div>
+          <div class="PickerInfoBarObject" id="NumbersInfo">表示口数</div>
+          <div class="PickerInfoBarObject" id="IntervalInfo">表示速度</div>
         </div>
-        <div class="StartPageObject" id="InformationDisplay">Information Display</div>
+        <div class="StartPageObject" id="InformationDisplay">情報表示</div>
       </div>
-      <div class="StartPageRedirect" id="StartPageStartPageRedirect">Start Screen</div>
+      <div class="StartPageRedirect" id="StartPageStartPageRedirect">スタート画面</div>
     </div>
     <div class="Page" id="ConfirmPage">
       <div class="ConfirmPageObject" id="ConfirmPageMain">
@@ -31,7 +33,7 @@
           <div id="ConfirmInformationText"></div>
         </div>
       </div>
-      <div class="StartPageRedirect" id="ConfirmPageStartPageRedirect">Start Screen</div>
+      <div class="StartPageRedirect" id="ConfirmPageStartPageredirect">レベル変更</div>
     </div>
     <div class="Page" id="GamePage">
       <div class="GamePageObject" id="GameNumbers"></div>
@@ -40,17 +42,17 @@
       <div id="GuessPageMain">
         <input class="GuessPageObject" id="GuessInput" type="text">
         <div class="GuessPageObject" id="GuessInformation">
-          <div id="GuessInformationText">Enter the answer and press the [Enter] button</div>
+          <div id="GuessInformationText">答えを入力し、［答入力完了」ボタンを押して下さい</div>
         </div>
       </div>
-      <div class="StartPageRedirect" id="GuessPageStartPageRedirect">Start Screen</div>
+      <div id="GuessInformationConfirmButton">答入力完了</div>
     </div>
     <div class="Page" id="CorrectPage">
-      <div class="StartPageRedirect" id="CorrectPageStartPageRedirect">Start Screen</div>
+      <div class="StartPageRedirect" id="CorrectPageStartPageRedirect">次へ</div>
       <div id="CorrectPageMain"></div>
     </div>
     <div class="Page" id="IncorrectPage">
-      <div class="StartPageRedirect" id="IncorrectPageStartPageRedirect">Start Screen</div>
+      <div class="StartPageRedirect" id="IncorrectPageStartPageRedirect">次へ</div>
       <div id="IncorrectPageMain">
         <div id="IncorrectPageBar">
           <div id="IncorrectPageCorrectAnswer"></div>
@@ -324,7 +326,7 @@
 
   .PickerText {
     font-family: sans-serif;
-    font-size: 27px;
+    font-size: 40px;
     color: #2c2c2c;
     user-select: none;
   }
@@ -334,7 +336,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 170px;
+    gap: 270px;
     margin: 0px;
     overflow: hidden;
     width: 100vw;
@@ -345,7 +347,7 @@
   .PickerInfoBarObject {
     color: #2c2c2c;
     font-family: sans-serif;
-    font-size: 20px;
+    font-size: 40px;
     user-select: none;
   }
 
@@ -354,7 +356,7 @@
     text-align: center;
     color: #3c66bc;
     font-family: sans-serif;
-    font-size: 20px;
+    font-size: 40px;
     padding: 20px;
     user-select: none;
   }
@@ -380,6 +382,30 @@
   #StartPageStartPageRedirect:hover {
     background-color: #9d9dbb;
   }
+
+  #StartPageContinue {
+    margin: 20px;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    padding: 20px;
+    border-radius: 25px;
+    border: 5px solid #ffffff;
+    width: 120px;
+    height: 22px;
+    font-size: 20px;
+    user-select: none;
+    color: #3c66bc;
+    text-align: center;
+    font-family: sans-serif;
+    transition: 100ms background-color ease-in;
+    z-index: 1;
+  }
+
+  #StartPageContinue:hover {
+    background-color: #9d9dbb;
+  }
+
 
   #ConfirmPage {
     background-color: #b1b1b1;
