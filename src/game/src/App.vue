@@ -28,12 +28,12 @@
       <div class="StartPageRedirect" id="StartPageStartPageRedirect">スタート画面</div>
     </div>
     <div class="Page" id="ConfirmPage">
+      <div class="StartPageRedirect" id="ConfirmPageStartPageRedirect">レベル変更</div>
       <div class="ConfirmPageObject" id="ConfirmPageMain">
         <div class="ConfirmPageObject" id="ConfirmInformation">
           <div id="ConfirmInformationText"></div>
         </div>
       </div>
-      <div class="StartPageRedirect" id="ConfirmPageStartPageredirect">レベル変更</div>
     </div>
     <div class="Page" id="GamePage">
       <div class="GamePageObject" id="GameNumbers"></div>
@@ -205,7 +205,7 @@
       }
 
 
-      // Move from Start Screen to Confirm Screen
+      // Move from Start Screen to Confirm Screen 
       document.addEventListener('keydown', function(event) {
         if (event.code == 'Enter') {
           if (mode == 1) {
@@ -226,7 +226,7 @@
         }
       });
 
-      // Returning to Start Page via Escape Button
+      // Returning to Start Page via Escape Button 
       document.addEventListener('keydown', function(event) {
         if (event.code == 'Escape' && mode == 2) {
           mode = 1;
@@ -248,7 +248,7 @@
         }
       });
 
-      //EventListener for enter button for Guess Page
+      // EventListener for enter button for Guess Page
       document.addEventListener('keydown', function(event) {
         if (event.code == 'Enter' && mode == 4) {
           GuessPageEnterPressed();
@@ -263,8 +263,8 @@
     margin: 0px;
   }
 
-  .Page {
-    visibility: hidden;
+  #StartPage {
+    visibility: visible;
     margin: 0px;
     position: absolute;
     top: 0%;
@@ -272,10 +272,6 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-  }
-
-  #StartPage {
-    visibility: visible;
     background-color: #a3a3bf;
   }
 
@@ -408,18 +404,29 @@
 
 
   #ConfirmPage {
-    background-color: #b1b1b1;
+    visibility: hidden;
+    margin: 0px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #a3a3bf;
   }
 
   #ConfirmPageMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    margin: 0px;
     position: absolute;
     width: 100vw;
     height: 90vh;
-    top: 0%;
     left: 0%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    top: 0%;
   }
 
   #ConfirmInformation {
@@ -433,9 +440,6 @@
     width: 100vw;
     height: 120px;
     background-color: #ffffff;
-  }
-
-  #ConfirmInformation {
     color: #000000;
     font-family: sans-serif;
     text-align: center;
@@ -448,7 +452,7 @@
   #ConfirmPageStartPageRedirect {
     margin: 20px;
     position: absolute;
-    bottom: 0%;
+    top: 0%;
     right: 0%;
     padding: 20px;
     border-radius: 25px;
@@ -468,6 +472,14 @@
   }
 
   #GamePage {
+    visibility: hidden;
+    margin: 0px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     background-color: #000000;
     display: flex;
     justify-content: center;
@@ -484,6 +496,14 @@
   }
 
   #GuessPage {
+    visibility: hidden;
+    margin: 0px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     background-color: #b1b1b1;
   }
 
@@ -534,10 +554,10 @@
     user-select: none;
   }
 
-  #GuessPageStartPageRedirect {
+  #GuessInformationConfirmButton {
     margin: 20px;
     position: absolute;
-    bottom: 0%;
+    top: 0%;
     right: 0%;
     padding: 20px;
     border-radius: 25px;
@@ -552,11 +572,19 @@
     transition: 100ms background-color ease-in;
   }
 
-  #GuessPageStartPageRedirect:hover {
+  #GuessInformationConfirmButton:hover {
     background-color: #a5a5a5;
   }
 
   #CorrectPage {
+    visibility: hidden;
+    margin: 0px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     background-color: #b5ff86;
   }
 
@@ -583,6 +611,14 @@
   }
 
   #IncorrectPage {
+    visibility: hidden;
+    margin: 0px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     background-color: #fc0017;
   }
 
