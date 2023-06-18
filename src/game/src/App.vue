@@ -254,6 +254,11 @@
           GuessPageEnterPressed();
         }
       });
+
+      const GuessInformationConfirmButtonPointer = document.querySelector('#GuessInformationConfirmButton');
+      GuessInformationConfirmButtonPointer.addEventListener('click', function(event) {
+        GuessPageEnterPressed();
+      })
     },
   })
 </script>
