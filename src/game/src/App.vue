@@ -28,12 +28,12 @@
       <div class="StartPageRedirect" id="StartPageStartPageRedirect">スタート画面</div>
     </div>
     <div class="Page" id="ConfirmPage">
-      <div class="StartPageRedirect" id="ConfirmPageStartPageRedirect">レベル変更</div>
       <div class="ConfirmPageObject" id="ConfirmPageMain">
         <div class="ConfirmPageObject" id="ConfirmInformation">
           <div id="ConfirmInformationText"></div>
         </div>
       </div>
+      <div class="StartPageRedirect" id="ConfirmPageStartPageRedirect">レベル変更</div>
     </div>
     <div class="Page" id="GamePage">
       <div class="GamePageObject" id="GameNumbers"></div>
@@ -174,17 +174,19 @@
 
         sum = 0;
 
-        for (var i=0; i<count; i++) {
-          let randomNumber = generateNumber(digits);
-          sum += randomNumber;
-          GameNumbersPointer.innerHTML = randomNumber;
-          await delay(interval*5000/6);
+        if (mode == 3) {
+          for (var i=0; i<count; i++) {
+            let randomNumber = generateNumber(digits);
+            sum += randomNumber;
+            GameNumbersPointer.innerHTML = randomNumber;
+            await delay(interval*5000/6);
 
-          GameNumbersPointer.innerHTML = '';
-          await delay(interval*1000/6);
+            GameNumbersPointer.innerHTML = '';
+            await delay(interval*1000/6);
+          }
+
+          StartGuess();
         }
-
-        StartGuess();
       }
 
       function ConfirmScreenWait() {
@@ -255,9 +257,23 @@
         }
       });
 
+      // EventListener for click on GuessInformationConfirmButton
       const GuessInformationConfirmButtonPointer = document.querySelector('#GuessInformationConfirmButton');
       GuessInformationConfirmButtonPointer.addEventListener('click', function(event) {
         GuessPageEnterPressed();
+      })
+
+      // EventListener for click on ConfirmPageStartPageRedirect
+      const ConfirmPageStartPageRedirectPointer = document.querySelector('#ConfirmPageStartPageRedirect');
+      ConfirmPageStartPageRedirectPointer.addEventListener('click', function(event) {
+        if (mode == 2) {
+          const StartPagePointer = document.querySelector('#StartPage');
+          const ConfirmPagePointer = document.querySelector('#ConfirmPage');
+          mode = 1;
+
+          StartPagePointer.style.visibility = 'visible';
+          ConfirmPagePointer.style.visibility = 'hidden';
+        }
       })
     },
   })
@@ -473,7 +489,7 @@
   }
 
   #ConfirmPageStartPageRedirect:hover {
-    background-color: #a5a5a5;
+    background-color: #9d9dbb;
   }
 
   #GamePage {
